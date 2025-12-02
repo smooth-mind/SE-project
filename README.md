@@ -51,7 +51,7 @@ Before setting up the application, ensure you have the following installed:
 
 ```bash
 git clone <repository-url>
-cd ml-ops-final-project
+cd se-final-project
 ```
 
 ### 2. Backend Setup (Django)
@@ -321,7 +321,7 @@ npm run lint
 
 ## 📄 License
 
-This project is part of an ML-Ops course final project. Please refer to your course guidelines for usage and distribution terms.
+This project is part of an SE course final project. Please refer to your course guidelines for usage and distribution terms.
 
 ## 🆘 Support
 
