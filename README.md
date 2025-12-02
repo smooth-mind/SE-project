@@ -1,4 +1,4 @@
-# 🎓 ML-Ops Final Project: Intelligent Assignment Management System
+# 🎓 SE Final Project: Intelligent Assignment Management System
 
 A comprehensive assignment management platform with AI-powered auto-grading capabilities, featuring OCR text recognition for handwritten submissions and intelligent scoring using Google's Gemini AI.
 
