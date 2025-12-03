@@ -27,10 +27,10 @@ SECRET_KEY = "django-insecure-vhaiwa%a=r28m#u3f^3ol(v6x%5b)-zzbd9wp0vg#-+=(ea6(a
 DEBUG = True
 
 ALLOWED_HOSTS = []
-#ALLOWED_HOSTS += ['ml-ops-final-project.onrender.com']
+#ALLOWED_HOSTS += ['se-final-project.onrender.com']
 
 if os.environ.get('RENDER'):
-    ALLOWED_HOSTS += ['ml-ops-final-project.onrender.com']
+    ALLOWED_HOSTS += ['se-final-project.onrender.com']
     DEBUG = True
 
 
