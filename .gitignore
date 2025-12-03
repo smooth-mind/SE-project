@@ -173,6 +173,7 @@ typings/
 
 # dotenv environment variables file
 .env
+server/.env.example
 
 
 

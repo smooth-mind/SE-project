@@ -1,6 +1,6 @@
 # 🎓 SE Final Project: Intelligent Assignment Management System
 
-A comprehensive assignment management platform with AI-powered auto-grading capabilities, featuring OCR text recognition for handwritten submissions and intelligent scoring using Google's Gemini AI.
+A comprehensive assignment management platform with AI-powered auto-grading capabilities, featuring OCR text recognition for handwritten submissions and intelligent scoring using OpenRouter-hosted LLMs (default: `openai/gpt-4o-mini`).
 
 ## 🌟 Features
 
@@ -9,7 +9,7 @@ A comprehensive assignment management platform with AI-powered auto-grading capa
 - **📚 Class Management**: Create and manage classes with student enrollment
 - **📝 Assignment Creation**: Upload task and solution files for assignments
 - **📤 Student Submissions**: Support for both digital and handwritten submissions
-- **🤖 AI Auto-Grading**: Intelligent scoring using Google Gemini AI
+- **🤖 AI Auto-Grading**: Intelligent scoring using OpenRouter (default OpenAI GPT-4o Mini)
 - **👁️ OCR Integration**: Text recognition for handwritten assignments
 - **📊 Manual Scoring**: Teachers can manually set and override scores
 - **⚡ Real-time Updates**: Live feedback and notifications
@@ -34,7 +34,7 @@ A comprehensive assignment management platform with AI-powered auto-grading capa
 
 ### AI/ML Services
 
-- **Google Gemini AI** - Auto-grading intelligence
+- **OpenRouter (LLM gateway)** - Auto-grading intelligence
 - **OCR Service** - Handwritten text recognition
 
 ## 📋 Prerequisites
@@ -70,8 +70,9 @@ Create a `.env` file in the `server` directory (optional - default values are se
 ```env
 SECRET_KEY=your-secret-key-here
 DEBUG=True
-GEMINI_API_KEY=your-gemini-api-key
-GEMINI_MODEL_URL=https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent
+OPENROUTER_API_KEY=your-openrouter-api-key
+OPENROUTER_API_URL=https://openrouter.ai/api/v1/chat/completions
+OPENROUTER_MODEL=openai/gpt-4o-mini
 OCR_PREDICTION_URL=your-ocr-service-url
 ```
 
@@ -112,22 +113,21 @@ The frontend will be available at `http://localhost:5173`
 
 ## 🔧 Detailed Setup Instructions
 
-### 🔑 Google Gemini AI Setup
+### 🔑 OpenRouter Setup
 
-1. **Create Google Cloud Account**
+1. **Create an OpenRouter Account**
 
-   - Go to [Google AI Studio](https://aistudio.google.com/)
-   - Sign in with your Google account
+   - Go to [OpenRouter](https://openrouter.ai/)
+   - Sign in and navigate to the API keys page
 
 2. **Generate API Key**
 
-   - Navigate to "Get API Key" section
    - Create a new API key
    - Copy the generated key
 
 3. **Configure in Application**
-   - Update `GEMINI_API_KEY` in `server/server/settings.py`
-   - Or set it in your `.env` file
+   - Set `OPENROUTER_API_KEY` (required) and optionally override `OPENROUTER_MODEL`/`OPENROUTER_API_URL` in your environment or in `server/server/settings.py`
+   - Default model is `openai/gpt-4o-mini`
 
 ### 📱 OCR Service Setup
 
@@ -243,7 +243,7 @@ npm run lint
 #### Auto-Grading System
 
 - Compares student submissions with provided solutions
-- Uses Google Gemini AI for intelligent scoring
+- Uses OpenRouter LLMs (default `openai/gpt-4o-mini`) for intelligent scoring
 - **Smart Processing**: Only grades submissions that don't already have scores
 - **Manual Override Protection**: Skips submissions that were manually scored
 - Supports multiple file formats
@@ -307,8 +307,8 @@ npm run lint
    - Ensure `MEDIA_ROOT` and `MEDIA_URL` are properly configured
    - Check file permissions
 
-4. **Gemini API Errors**
-   - Verify API key is correct and has sufficient quota
+4. **OpenRouter API Errors**
+   - Verify API key is correct and allowed for the configured model
    - Check internet connectivity
 
 ## 🤝 Contributing
